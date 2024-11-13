@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yes_no_app/domain/entities/message.dart';
-import 'package:yes_no_app/main.dart';
 import 'package:yes_no_app/presentation/providers/chat_provider.dart';
 import 'package:yes_no_app/presentation/widgets/chat/his_message_bubble.dart';
 import 'package:yes_no_app/presentation/widgets/chat/my_message_bubble.dart';
@@ -42,6 +41,7 @@ class _ChatView extends StatelessWidget {
           children: [
             //builder: en tiempo de ejecucion
             Expanded(child: ListView.builder(
+              controller: chatProvider.scrollController,
               itemCount: chatProvider.messageList.length,
               itemBuilder: (context, index) {
                 final message = chatProvider.messageList[index];
